@@ -16,6 +16,7 @@ class ShopItemOrder
             item_name = "";
             unit_price = 0.0;
             quantity = 0;
+
         }
 
         // Method to read input
