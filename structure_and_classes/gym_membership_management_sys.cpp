@@ -81,6 +81,54 @@ void PrintAllStatus(MembershipSys registerNums[], int size){
 int main () {
     //code
 
+    MembershipSys registerNums[10];
 
+    string command;
+    while (true) {
+        getline(cin, command);
+        if (command == "quit") break;
+
+        stringstream ss(command);
+        string action;
+        ss >> action;
+
+        if (action == "create"){
+            int id, cap;
+            bool created = false;
+            ss >> id >> cap;
+            for (int i = 0; i < 10; i++) {
+                if(registerNums[i].getId() == 0){
+                    registerNums[i] = MembershipSys(id, cap, 0);
+                    created = true;
+                    break;
+                }
+                if(!created) {
+                    cout << "Your User has been created!" << endl;
+                }
+                PrintAllStatus(registerNums, 10);
+            }
+        } 
+
+        else if (action == "delete") {
+            int id;
+            ss >> id;
+            bool deleted = false;
+            for (int i = 0; i < 10; i++) {
+                if (registerNums[i].getId() == id) {
+                    registerNums[i] = MembershipSys();
+                    deleted = true;
+                }
+            }
+            if (!deleted) {
+                cout << "Cannot perform this operation" << endl;
+                PrintAllStatus(registerNums, 10);
+            }
+        }
+
+        else if (action == "extend") {
+            
+        }
+        
+    }
     return 0;
 }
