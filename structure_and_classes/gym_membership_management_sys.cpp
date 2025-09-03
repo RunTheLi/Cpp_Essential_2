@@ -4,86 +4,80 @@
 
 using namespace std;
 
-class MembershipSys {
+class Member {
 public:
-    MembershipSys(int id, int capacity, int reserved);
-    MembershipSys();
+    Member(int id, string name, int months);
+    Member();
 
     void printStatus();
-    bool registerMember(int number);
-    bool cancelMember(int number);
-    int getId() { return id; };
+    bool extend(int n);
+    void cancel();
+    int getId() { return id; }
+    string getName() { return name; }
+    int getMonths() { return months; }
 
 private:
     int id;
-    int capacity;
-    int reserved;
+    string name;
+    int months;
 };
 
-MembershipSys::MembershipSys() {
-    id = 0, capacity = 0, reserved = 0;
+Member::Member() {
+    id = 0;
+    name = "";
+    months = 0;
 }
 
-MembershipSys::MembershipSys(int id, int capacity, int reserved){
-    this -> id = id;
-    this -> capacity = capacity;
+Member::Member(int id, string name, int months) {
+    this->id = id;
+    this->name = name;
 
-    if(reserved < 0) {
-        this -> reserved = 0;
-    }
-
-    if (reserved > capacity) {
-        this -> reserved = capacity;
+    if (months < 0) {
+        this->months = 0; 
     } else {
-        this -> reserved = reserved;
+        this->months = months;
     }
 }
 
-bool MembershipSys::cancelMember(int number){
-    if(number <= 0 || reserved < number){
-        return false;
-    }
-    reserved -= number;
+void Member::printStatus() {
+    cout << "Member " << id << " : " << name
+         << ", subscription valid for " << months << " months" << endl;
+}
 
+bool Member::extend(int n) {
+    if (n <= 0) return false;
+    months += n;
     return true;
 }
 
-bool MembershipSys::registerMember(int number){
-    if(number <= 0 || reserved + number > capacity){
-        return false;
-    }
-    reserved += number;
-
-    return true;
+void Member::cancel() {
+    months = 0;
 }
 
-void MembershipSys::printStatus(){
-    cout << "Gym " << id << ": " << reserved << "/" << capacity
-         << " (" << (100 * reserved / capacity) << "%) members registered" << endl;
-}
-
-void PrintAllStatus(MembershipSys registerNums[], int size){
+void PrintAllStatus(Member members[], int size) {
     bool any = false;
-
-    for(int i = 0; i < size; i++){        
-        if(registerNums[i].getId() != 0){
-            registerNums[i].printStatus();
+    for (int i = 0; i < size; i++) {
+        if (members[i].getId() != 0) {
+            members[i].printStatus();
             any = true;
         }
     }
-
     if (!any) {
-        cout << "=== Id numbers is not in the systems! ===";
+        cout << "No members in the system" << endl;
     }
     cout << endl;
 }
 
-int main () {
-    //code
-
-    MembershipSys registerNums[10];
-
+int main() {
+    Member members[10];
     string command;
+
+    cout << "|        Please create your account        |" << endl;
+    cout << "| Type create/extend/cancel/delete Id Name |" << endl;
+    cout << "|           ===== Example =====            |" << endl;
+    cout << "|            create 7 John Doe             |" << endl;
+    cout << "|           ===================            |" << endl;
+
     while (true) {
         getline(cin, command);
         if (command == "quit") break;
@@ -92,43 +86,74 @@ int main () {
         string action;
         ss >> action;
 
-        if (action == "create"){
-            int id, cap;
+        if (action == "create") {
+            int id;
+            string fname, lname;
+            ss >> id >> fname >> lname;
+            string name = fname + " " + lname;
+
             bool created = false;
-            ss >> id >> cap;
             for (int i = 0; i < 10; i++) {
-                if(registerNums[i].getId() == 0){
-                    registerNums[i] = MembershipSys(id, cap, 0);
+                if (members[i].getId() == 0) {
+                    members[i] = Member(id, name, 0);
                     created = true;
                     break;
                 }
-                if(!created) {
-                    cout << "Your User has been created!" << endl;
-                }
-                PrintAllStatus(registerNums, 10);
             }
-        } 
+            if (!created) {
+                cout << "Cannot perform this operation" << endl;
+            }
+            PrintAllStatus(members, 10);
+        }
 
         else if (action == "delete") {
             int id;
             ss >> id;
             bool deleted = false;
             for (int i = 0; i < 10; i++) {
-                if (registerNums[i].getId() == id) {
-                    registerNums[i] = MembershipSys();
+                if (members[i].getId() == id) {
+                    members[i] = Member();
                     deleted = true;
                 }
             }
             if (!deleted) {
                 cout << "Cannot perform this operation" << endl;
-                PrintAllStatus(registerNums, 10);
             }
+            PrintAllStatus(members, 10);
         }
 
         else if (action == "extend") {
-            
+            int id, n;
+            ss >> id >> n;
+            bool extended = false;
+            for (int i = 0; i < 10; i++) {
+                if (members[i].getId() == id) {
+                    extended = members[i].extend(n);
+                    break;
+                }
+            }
+            if (!extended) {
+                cout << "Cannot perform this operation" << endl;
+            }
+            PrintAllStatus(members, 10);
         }
-        
+
+        else if (action == "cancel") {
+            int id;
+            ss >> id;
+            bool cancelled = false;
+            for (int i = 0; i < 10; i++) {
+                if (members[i].getId() == id) {
+                    members[i].cancel();
+                    cancelled = true;
+                    break;
+                }
+            }
+            if (!cancelled) {
+                cout << "Cannot perform this operation" << endl;
+            }
+            PrintAllStatus(members, 10);
+        }
     }
     return 0;
 }
