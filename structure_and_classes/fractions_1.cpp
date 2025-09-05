@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <cmath>
 #include <sstream>
+#include <cmath>
 
 using namespace std;
 
@@ -15,44 +15,43 @@ private:
   int denominator;
 };
 
-// implement Fraction methods
 Fraction::Fraction(int numerator, int denominator) {
-    if(denominator < 0) {
-        numerator = -numerator;
-        denominator = -denominator;
-    }
-    this -> numerator = numerator;
-    this -> denominator = denominator;
+  if(denominator < 0){
+    numerator -= numerator;
+    denominator -= denominator;
+  }
+
+  this -> numerator = numerator;
+  this -> denominator = denominator;
 }
 
 string Fraction::toString(){
-    int num = numerator;
-    int den = denominator;
+  int num = numerator;
+  int den = denominator;
 
-    int whole = num / den;
-    int remainder = abs(num % den);
+  int whole = num/denominator;
+  int remainder = abs(num % den);
 
-    string result;
-
-    if(whole != 0) {
-        result = to_string(whole);
-        if(remainder != 0) {
-            result += " " + to_string(remainder) + "/" + to_string(den);
-        }
-    } else {
+  string result;
+  if (whole != 0) {
+    result = to_string(whole);
+    if (remainder != 0) {
+      result += " " + to_string(remainder) + "/" + to_string(den);
+    }
+  } else {
+        // just a fraction
         result = to_string(num) + "/" + to_string(den);
     }
-
     return result;
 }
 
 double Fraction::toDouble(){
-    return (double)numerator / denominator;
+  return (double)numerator/denominator;
 }
+// implement Fraction methods
 
 int main(void) {
-  
-  string input;
+    string input;
     getline(cin, input);
 
     stringstream ss(input);
@@ -61,8 +60,8 @@ int main(void) {
     ss >> num >> slash >> den;
 
     Fraction fraction(num, den);
-  // parse input and get numerator and denominator
 
-	 cout << fraction.toString() << " is " << fraction.toDouble() << " in decimal" << endl;
-	return 0;
+    cout << fraction.toString() << " is " << fraction.toDouble() << " in decimal" << endl;
+
+    return 0;
 }
