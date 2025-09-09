@@ -98,7 +98,15 @@ bool List::pop_front(int &value)
   // implement the pop
   // don't forget to delete the popped node!
   // and fix the return value
-  return false;
+  if (head == nullptr) {
+    return false;
+  }
+
+  Node* popped = head;
+  head = head-> next;
+  value = popped -> value;
+  delete popped;
+  return true;
 }
 
 int main()
