@@ -28,8 +28,7 @@
 
 using namespace std;
 
-class Node
-{
+class Node {
 public:
   Node(int val);
   int value;
@@ -55,9 +54,6 @@ private:
   Node* tail;
 };
 
-Node::Node(int val) : value(val), next(nullptr) {}
-Node::~Node() {}
-
 List::List() : head(nullptr), tail(nullptr) {}
 
 List::~List(){
@@ -68,6 +64,7 @@ List::~List(){
         current = nextNode;
     }
     head = nullptr;
+    tail = nullptr;
 }
 
 void List::push_front(int value)
@@ -77,6 +74,7 @@ void List::push_front(int value)
   Node* new_head = new Node(value);
   new_head->next = head;
   head = new_head;
+  if (tail == nullptr) tail = head;
 }
 
 // All of your previously written methods may require a little fixing
@@ -137,6 +135,11 @@ bool List::pop_front(int &value)
   head = head-> next;
   value = popped -> value;
   delete popped;
+  
+
+  if(head == nullptr) {
+    tail = nullptr;
+  }
   return true;
 }
 
