@@ -109,7 +109,7 @@ List::List() : head(nullptr), tail(nullptr) {}
 List::List(const List& other) : head(nullptr), tail(nullptr) {
     Node* current = other.head;
     while (current != nullptr) {
-        this->push_back(current->value);  // reuse your push_back()
+        this->push_back(current->value);
         current = current->next;
     }
 }
