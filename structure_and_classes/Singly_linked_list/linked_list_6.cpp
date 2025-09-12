@@ -203,10 +203,10 @@ int main()
 {
   List list;
   //
-  list.push_front(1);
-  list.push_front(2);
-  list.push_front(3);
-  list.push_front(4);
+  list.push_back(1);
+  list.push_back(2);
+  list.push_back(3);
+  list.push_back(4);
   printList(list);
   cout << endl;
 
