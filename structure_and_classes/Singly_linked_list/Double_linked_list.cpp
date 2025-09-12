@@ -27,6 +27,9 @@
 // +------+                  |
 // | tail |------------------+
 // +------+
+#include <iostream>
+
+using namespace std;
 
 class Node
 {
@@ -41,7 +44,7 @@ class List
 {
 public:
   List();
-  List(List &other);
+  List(const List &other);
   ~List();
 
   void push_front(int value);
