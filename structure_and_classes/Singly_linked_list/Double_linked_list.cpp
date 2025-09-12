@@ -1,12 +1,39 @@
-#include <iostream>
-
-using namespace std;
+// An empty list:
+//
+//  Node*
+// +------+
+// | head |-->nullptr
+// +------+
+//
+//  Node*
+// +------+
+// | tail |-->nullptr
+// +------+
+//
+//
+//
+// A list with two elements:
+//
+//  Node*      Node         Node
+//
+//            +-----+      +-----+
+//   nullptr<-|prev |   +--|prev |
+// +------+   +-----+<--+  +-----+
+// | head |-->|value|      |value|
+// +------+   +-----+  +-->+-----+
+//            |next |--+   |next |-->nullptr
+//            +-----+      +-----+
+//                           ^
+// +------+                  |
+// | tail |------------------+
+// +------+
 
 class Node
 {
 public:
   Node(int val);
   int value;
+  Node* prev;
   Node* next;
 };
 
@@ -14,10 +41,9 @@ class List
 {
 public:
   List();
-  List(const List &other);
-  // Uncomment the line below once you're ready
-  // List(List &other);
+  List(List &other);
   ~List();
+
   void push_front(int value);
   bool pop_front(int &value);
   void push_back(int value);
@@ -26,16 +52,15 @@ public:
   void insert_at(int index, int value);
   void remove_at(int index);
   int size();
+  
 private:
   // other members you may have used
   Node* head;
   Node* tail;
 };
 
-// ...
-
 int List::at(int index){
-    if(index < 0) {
+    if (index < 0) {
         cout << "Index out of range" << endl;
         return -1;
     }
@@ -60,9 +85,13 @@ void List::insert_at(int index, int value){
         push_front(value);
         return;
     }
-
-    if(index == size()) {
+    int n = size();
+    if (index == n) {
         push_back(value);
+        return;
+    }
+    if (index < 0 || index > n) {
+        cout << "Index out of range" << endl;
         return;
     }
 
@@ -72,12 +101,19 @@ void List::insert_at(int index, int value){
     }
 
     Node* newNode = new Node(value);
+    Node* nextNode = current->next;
+
     newNode->next = current->next;
+    newNode->prev = current;
     current->next = newNode;
+
+    if (nextNode != nullptr) nextNode->prev = newNode;
+    else tail = newNode;
 }
 
 void List::remove_at(int index){
-  if(index < 0 || index >= size()) {
+    int n = size();
+  if(index < 0 || index >= n) {
     cout << "Index out of range!" << endl;
     return;
   }
@@ -88,20 +124,23 @@ void List::remove_at(int index){
         return;
     }
 
-  if(index == size() - 1) {
+  if (index == size() - 1) {
     int dummy;
       pop_back(dummy);
         return;
     }
 
     Node* current = head;
-    for(int i = 0; i < index - 1; i++) {
+    for (int i = 0; i < index; i++) {
       current = current->next;
     }
 
-    Node* temp = current->next;
-    current->next = temp->next;
-    delete temp;
+    Node* prevNode = current->prev;
+    Node* nextNode = current->next;
+    prevNode->next = nextNode;
+    nextNode->prev = prevNode;
+
+    delete current;
 }
 
 List::List() : head(nullptr), tail(nullptr) {}
@@ -127,38 +166,31 @@ List::~List(){
 
 bool List::pop_back(int &value)
 {
-    if (head == nullptr) {
-        return false;  
-    }
-
-    if (head == tail) {
-        value = head->value;
-        delete head;
+    if (tail == nullptr) return false;
+    Node* popped = tail;
+    value = popped->value;
+    tail = tail->prev;
+    if (tail != nullptr) {
+        tail->next = nullptr;
+    } else {
         head = nullptr;
-        tail = nullptr;
-        return true;
     }
-
-    Node* current = head;
-    while (current->next != tail) {
-        current = current->next;
-    }
-
-    value = tail->value;
-    delete tail;
-    tail = current;
-    tail->next = nullptr;
-
+    delete popped;
     return true;
 }
 // ...
 
 void List::push_front(int value)
 {
-  Node* new_head = new Node(value);
-  new_head->next = head;
-  head = new_head;
-  if (tail == nullptr) tail = head;
+  Node* newNode = new Node(value);
+  newNode->next = head;
+  newNode->prev = nullptr;
+  if(head != nullptr) {
+    head->prev = newNode;
+  } else {
+    tail = newNode;
+  }
+  head = newNode;
 }
 
 bool List::pop_front(int &value)
@@ -170,12 +202,14 @@ bool List::pop_front(int &value)
   Node* popped = head;
   head = head-> next;
   value = popped -> value;
-  delete popped;
   
-
-  if(head == nullptr) {
+  if(head != nullptr) {
+    head -> prev = nullptr;
+  } else {
     tail = nullptr;
   }
+
+  delete popped;
   return true;
 }
 
@@ -192,51 +226,56 @@ int List::size(){
 void List::push_back(int value)
 {
     Node* newNode = new Node(value);
-
-    if (tail == nullptr) {
-        head = tail = newNode;
-    } else {
+    newNode -> prev = tail;
+    newNode -> next = nullptr;
+    if (tail != nullptr) {
         tail->next = newNode;
-        tail = newNode;
+    } else {
+        head = newNode;
     }
+    tail = newNode;
 }
 
-Node::Node(int val) : value(val), next(nullptr) {}
+Node::Node(int val) : value(val), prev(nullptr), next(nullptr) {}
 
-void printList(List &list)
-{
-    for (int i = 0; i < list.size(); i++)
-    {
-        cout << "list[" << i << "] == " << list.at(i) << endl;
-    }
+void printList(List &list) {
+for (int i = 0; i < list.size(); ++i) {
+cout << "list[" << i << "] == " << list.at(i) << endl;
+}
 }
 
-int main() 
-{
-    List list1;
-    list1.push_back(1);
-    list1.push_back(2);
-    list1.push_back(3);
-    list1.push_back(4);
+int main() {
+List list1;
+list1.push_back(1);
+list1.push_back(2);
+list1.push_back(3);
+list1.push_back(4);
 
-    cout << "list1" << endl;
-    printList(list1);
 
-    // Make a copy of list1
-    List list2 = list1;
+cout << "list1" << endl;
+printList(list1);
 
-    cout << "\nlist2" << endl;
-    printList(list2);
 
-    // Modify list1
-    list1.insert_at(1, 6);
-    list1.remove_at(3);
+// Make a copy of list1
+List list2 = list1; // uses deep copy constructor
 
-    cout << "\nlist1" << endl;
-    printList(list1);
 
-    cout << "\nlist2" << endl;
-    printList(list2);
+cout << "\nlist2" << endl;
+printList(list2);
 
-    return 0;
+
+// Modify list1
+list1.insert_at(1, 6);
+list1.remove_at(3);
+
+
+cout << "\nlist1 after modification" << endl;
+printList(list1);
+
+
+cout << "\nlist2 remains unchanged" << endl;
+printList(list2);
+
+
+return 0;
 }
