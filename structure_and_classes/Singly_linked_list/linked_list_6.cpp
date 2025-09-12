@@ -74,7 +74,31 @@ void List::insert_at(int index, int value){
 }
 
 void List::remove_at(int index){
+  if(index < 0 || index >= size()) {
+    cout << "Index out of range!" << endl;
+    return;
+  }
 
+  if (index == 0) {
+    int dummy;
+      pop_front(dummy);
+        return;
+    }
+
+  if(index == size() - 1) {
+    int dummy;
+      pop_back(dummy);
+        return;
+    }
+
+    Node* current = head;
+    for(int i = 0; i < index - 1; i++) {
+      current = current->next;
+    }
+
+    Node* temp = current->next;
+    current->next = temp->next;
+    delete temp;
 }
 
 List::List() : head(nullptr), tail(nullptr) {}
@@ -166,14 +190,15 @@ void List::push_back(int value)
     }
 }
 
+Node::Node(int val) : value(val), next(nullptr) {}
+
 void printList(List &list)
 {
-  for (int i = 0; i < list.size(); i++)
-  {
-    cout << "list[" << i << "] == " list.at(i) << endl;
-  }
+    for (int i = 0; i < list.size(); i++)
+    {
+        cout << "list[" << i << "] == " << list.at(i) << endl;
+    }
 }
-
 int main()
 {
   List list;
