@@ -14,6 +14,9 @@ class List
 {
 public:
   List();
+  List(const List &other);
+  // Uncomment the line below once you're ready
+  // List(List &other);
   ~List();
   void push_front(int value);
   bool pop_front(int &value);
@@ -102,6 +105,14 @@ void List::remove_at(int index){
 }
 
 List::List() : head(nullptr), tail(nullptr) {}
+
+List::List(const List& other) : head(nullptr), tail(nullptr) {
+    Node* current = other.head;
+    while (current != nullptr) {
+        this->push_back(current->value);  // reuse your push_back()
+        current = current->next;
+    }
+}
 
 List::~List(){
     Node* current = head;
@@ -200,23 +211,32 @@ void printList(List &list)
     }
 }
 
-int main()
+int main() 
 {
-  List list;
-  //
-  list.push_back(1);
-  list.push_back(2);
-  list.push_back(3);
-  list.push_back(4);
-  printList(list);
-  cout << endl;
+    List list1;
+    list1.push_back(1);
+    list1.push_back(2);
+    list1.push_back(3);
+    list1.push_back(4);
 
-  list.remove_at(2);
-  printList(list);
-  cout << endl;
+    cout << "list1" << endl;
+    printList(list1);
 
-  list.insert_at(1, 6);
-  printList(list);
+    // Make a copy of list1
+    List list2 = list1;
 
-  return 0;
+    cout << "\nlist2" << endl;
+    printList(list2);
+
+    // Modify list1
+    list1.insert_at(1, 6);
+    list1.remove_at(3);
+
+    cout << "\nlist1" << endl;
+    printList(list1);
+
+    cout << "\nlist2" << endl;
+    printList(list2);
+
+    return 0;
 }
