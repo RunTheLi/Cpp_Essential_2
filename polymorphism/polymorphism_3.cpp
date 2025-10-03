@@ -16,7 +16,7 @@ public:
         ip = other.ip;
     }
 
-    void print() {
+    virtual void print() {
         cout << ip << endl;
     }
 
@@ -24,16 +24,17 @@ public:
 };
 
 
+
 class IPAddressCheck : public IPAddress {
 private:
     bool isCorrect;
 public:
-    IPAddressCheck(string IPAddress) : IPAddress(IPAddress) {
+    IPAddressCheck(string ipAddress) : IPAddress(ipAddress) {
         isCorrect = true;
 
-    stringstream ss(IPAddress);
-    string segment;
-    int count = 0;
+        stringstream ss(ipAddress);
+        string segment;
+        int count = 0;
 
         while (getline(ss, segment, '.')) {
             count++;
@@ -55,13 +56,13 @@ public:
         isCorrect = other.isCorrect;
     }
 
-    void print() {
-    IPAddress::print();
-    if (isCorrect)
-        cout << " - Correct" << endl;
-    else
-        cout << " - Not Correct" << endl;
-        }
+    void print() override {
+        cout << ip;
+        if (isCorrect)
+            cout << " - Correct" << endl;
+        else
+            cout << " - Not Correct" << endl;
+    }
 };
 
 int main() {
