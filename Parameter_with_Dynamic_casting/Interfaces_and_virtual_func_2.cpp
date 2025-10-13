@@ -1,0 +1,87 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class StringValidator
+{
+public:
+  virtual ~StringValidator() {};
+  virtual bool isValid(std::string input) = 0;
+};
+
+
+// Your code here
+class MinLengthValidator : public StringValidator {
+private:
+  size_t minLen;
+public:
+  MinLengthValidator(size_t m) : minLen(m) {}
+  bool isValid(std::string input) override {
+    return input.length() >= minLen;
+  }
+};
+
+class MaxLengthValidator : public StringValidator {
+  private:
+    size_t maxLen;
+  public:
+    MaxLengthValidator(size_t m) : maxLen(m) {}
+    bool isValid(std::string input) override {
+      return input.length() <= maxLen;
+    } 
+};
+
+
+// PatternValidator: checks if pattern appears anywhere in input using the rules.
+// 'D' = digit, 'A' = any letter, '?' = any char, lowercase letters = case-insensitive match.
+class PatternValidator : public StringValidator {
+  private:
+    std::string pattern;
+
+    bool matchesAt(const std::string &s, size_t pos) const {
+      if (pos + pattern.size() > s.size()) return false;
+      for (size_t i = 0; i < pattern.size(); i++) {
+        char p = pattern[i];
+        char c = s[pos + i];
+
+        if (p == 'D') {
+          if(!std::isdigit(static_cast<unsigned char>(c))) return false;
+        } else if (p == "A") {
+           if (!std::isalpha(static_cast<unsigned char>(c))) return false;
+        }
+      }
+    }
+
+};
+
+
+void printValid(StringValidator &validator, string input)
+{
+  cout << "The string '" << input << "' is "
+       << (validator.isValid("hello") ? "valid" : "invalid");
+}
+
+
+int main()
+{
+  cout << "MinLengthValidator" << endl:
+  MinLengthValidator min(6);
+  printValid(min, "hello");
+  printValid(min, "welcome");
+  cout << endl;
+
+  cout << "MaxLengthValidator" << endl:
+  MaxLengthValidator max(6);
+  printValid(max, "hello");
+  printValid(max, "welcome");
+  cout << endl;
+
+  cout << "PatternValidator" << endl:
+  PatternValidator digit("D");
+  printValid(digit, "there are 2 types of sentences in the world");
+  printValid(digit, "valid and invalid ones");
+  cout << endl;
+
+  return 0;
+}
