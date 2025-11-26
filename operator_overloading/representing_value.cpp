@@ -34,12 +34,12 @@ FSM& FSM::operator<<(int value){
 }
 
 void FSM::transition(int value) {
-    if (current == State::Stop) return; // ถ้า Stop แล้ว ไม่ต้องทำอะไร
+    if (current == State::Stop) return;
 
     if (current == State::Start) {
         current = (value < 5) ? State::S3 : State::S5;
     } else if (current == State::S3) {
-        current = State::S4; // ไม่ขึ้นกับ value เพื่อให้ไป S4 ต่อ
+        current = State::S4; 
     } else if (current == State::S4 || current == State::S5) {
         current = State::Stop;
     }
