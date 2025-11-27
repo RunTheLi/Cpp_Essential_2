@@ -1,0 +1,29 @@
+Sample Input
+Enter the operation you want to perform (add, subtract, multiply): subtract
+Enter the number of rows for Matrix A: 2
+Enter the number of columns for Matrix A: 2
+Enter the values for Matrix A:
+Enter value at position [0][0]: 1
+Enter value at position [0][1]: 1
+Enter value at position [1][0]: 2
+Enter value at position [1][1]: 2
+Enter the number of rows for Matrix B: 2
+Enter the number of columns for Matrix B: 2
+Enter the values for Matrix B:
+Enter value at position [0][0]: 3
+Enter value at position [0][1]: 3
+Enter value at position [1][0]: 3
+Enter value at position [1][1]: 3
+
+Expected output
+Matrix A:
+1 1 
+2 2 
+ 
+Matrix B:
+3 3 
+3 3 
+ 
+After subtraction:
+-2 -2 
+-1 -1 
