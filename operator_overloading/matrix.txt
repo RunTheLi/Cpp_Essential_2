@@ -1,3 +1,18 @@
+Scenario
+Write a class which holds matrices of different sizes and create methods to:
+
+add a value to a matrix (add a value to each individual cell of the matrix);
+add two matrices, and if their sizes are different, throw an exception;
+subtract a value from a matrix (subtract a value from each individual cell of thematrix);
+subtract two matrices, and if their sizes are different, throw an exception;
+multiply a value by a matrix (multiply a value by each individual cell of the matrix);
+multiply two matrices, and if the row count of the first matrix is different to the column count of the second matrix, throw an exception.
+Add an overloaded operator to each of the methods above. In the main function, perform a few operations with operators only.
+
+Create two matrices, one with 1 in all cells, and another with 3 in all cells. Perform all operations, and print all indirect results.
+
+After testing this scenario, add a third matrix with a different size to the first one. Try to make your code throw all possible exceptions.
+
 Sample Input
 Enter the operation you want to perform (add, subtract, multiply): subtract
 Enter the number of rows for Matrix A: 2

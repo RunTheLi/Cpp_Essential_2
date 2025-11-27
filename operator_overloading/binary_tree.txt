@@ -1,0 +1,23 @@
+Scenario
+Prepare a container class for a binary tree structure.
+
+The binary tree is a tree data structure where each node has zero, one or two child nodes. These child nodes are referred to as the left child and the right child. This class consists of three fields:
+
+a field with a value;
+a pointer to the left child;
+a pointer to the right child.
+Implement a method to add a value to a tree, test it with some values (you can hard-code the values – testing should be easier and faster).
+
+Overload the operator << to print all nodes inorder (inorder is a tree traversal method where you first traverse the left child inorder, then print the value of the current node and then traverse the right child inorder).
+
+Think twice about the place of implementation of this operator. Is it inside a class or is it a normal operator function?
+
+Sample Input
+3
+5
+2
+
+Expected output
+2
+3
+5
