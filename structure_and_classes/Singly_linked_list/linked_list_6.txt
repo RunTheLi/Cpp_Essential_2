@@ -1,0 +1,28 @@
+Objectives
+Familiarize the student with:
+
+implementing data structures in C++;
+traversing data structures;
+accessing data stored in data structures.
+Scenario
+For the last part of adding, removing and accessing the data in our list, we'll provide you with a way to do all of these actions by indexing the elements in the list.
+
+To enable this, we'll add three new methods to the List class:
+
+at(int index) which will return the value of the element with index [index];
+insert_at(int index, int value) which will insert the value at the desired index;
+remove_at(int index) which will remove the value at the desired index (without returning it).
+Expected output
+list[0] == 1
+list[1] == 2
+list[2] == 3
+list[3] == 4
+
+list[0] == 1
+list[1] == 2
+list[2] == 4
+
+list[0] == 1
+list[1] == 6
+list[2] == 2
+list[3] == 4

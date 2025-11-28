@@ -1,0 +1,46 @@
+Objectives
+Familiarize the student with:
+
+C++ class and object syntax;
+creating objects;
+accessing object members.
+Scenario
+Before we start doing anything useful with classes, objects and the like, we should familiarize ourselves a little with these concepts.
+
+So for now, let's represent a person in terms of classes!
+
+Run the code in the editor and then experiment with it. Add some more members to the class and try accessing them.
+
+// Base Code //
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Person
+{
+public:
+  string name;
+  int    age;
+  // Your code here
+};
+
+void print(Person* person)
+{
+  cout << person->name << " is " << person->age << " years old" << endl;
+}
+
+
+int main()
+{
+  Person person;
+  person.name = "Harry";
+  person.age  = 23;
+
+  cout << "Meet " << person.name << endl;
+  print(&person);
+
+  // Your code here
+
+  return 0;
+}

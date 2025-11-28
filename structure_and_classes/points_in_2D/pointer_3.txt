@@ -1,0 +1,33 @@
+Objectives
+Familiarize the student with:
+
+modelling real-world entities with classes and objects;
+interactions between objects of the same type.
+Scenario
+Use the code from the previous exercise as a starting point.
+
+It's sometimes useful in computer graphics to detect if three or more points in a 2D space are collinear.
+
+Use the code from your previous example and add the method contains() to the Line2D class that will check if a given point belongs to that line.
+
+Your program should read in two sets of x and y coordinates and construct an object of the class Line2D based on those two points.
+
+Then, your program should read a third point and determine if it's a part of the same line.
+
+The output of your program should just be the verdict "collinear" or "not collinear".
+
+Remember that comparing floating-point values in C++ might be a bit tricky.
+
+Sample Input
+0 0
+3 6
+-2 -4
+Expected output
+collinear
+
+Sample Input
+2 2
+-2 0
+0 0
+Expected output
+not collinear

@@ -1,0 +1,24 @@
+Objectives
+Familiarize the student with:
+
+modelling real-world entities in C++,
+the usage of objects, classes in C++;
+verifying user input;
+useful and informative data presentation.
+Scenario
+This task will be a little more free-form than the previous ones.
+
+We want you to design and write a game!
+
+First, think of the type of game you want to design:
+
+maybe a classic pen-and-paper game like Battleships or Tic-tac-toe;
+or maybe a word game like Hangman;
+or some simple board game like Ludo;
+or even a card game like Blackjack
+The game does not need to be fancy, but think of the following things when you work:
+
+how can you present the game in a user-friendly way?
+which elements of the game can be modelled using classes and objects?
+do you see any space for common interfaces that can be shared by more than one class?
+That's it. Go on, have fun!

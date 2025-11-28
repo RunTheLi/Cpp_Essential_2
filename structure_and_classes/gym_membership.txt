@@ -1,0 +1,54 @@
+Objectives
+Familiarize the student with:
+
+modelling real-world entities with classes and objects;
+limiting acceptable input range;
+managing multiple objects.
+Scenario
+After working on our flight-booking system, you should have a grasp of basic object-oriented programming.
+
+Now let's revisit the material and create a similar system from scratch!
+
+Build a program that will manage gym member subscriptions.
+
+The data we're going to store about each member is going to be:
+
+their user ID;
+their name;
+for how many months their membership is valid.
+Our program should allow the following commands:
+
+the command "create [id] [name]" will try to create a new member with ID [id], name [name] and 0 months of subscription;
+the command "delete [id]" will try to remove the member with ID [id];
+the command "extend [id] [n]" will try to extend the membership number of months of the member by [n];
+the command "cancel [id]" will try to set the number of months of subscription to 0 of the member with the ID [id];
+if an operation fails for any reason, the program will issue the message "Cannot perform this operation". You can add a more helpful message to identify why the operation failed;
+the command "quit" will stop the execution of the program.
+For the sake of simplicity, let's limit the maximum number of members handled to ten.
+
+As a convention, we can assume that 0 is not a valid member ID, so a member with an ID of 0 may be considered as nonexistent.
+
+Sample Input
+create 7 John Doe
+create 8 Jane Doe
+extend 7 6
+extend 8 12
+cancel 8
+delete 7
+quit
+
+Expected output
+No members in the system
+
+Member 7 : John Doe, subscription valid for 0 months
+
+Member 7 : John Doe, subscription valid for 0 months
+Member 8 : Jane Doe, subscription valid for 0 months
+
+Member 7 : John Doe, subscription valid for 6 months
+Member 8 : Jane Doe, subscription valid for 12 months
+
+Member 7 : John Doe, subscription valid for 6 months
+Member 8 : Jane Doe, subscription valid for 0 months
+
+Member 8 : Jane Doe, subscription valid for 0 months

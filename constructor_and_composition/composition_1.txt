@@ -1,0 +1,30 @@
+Objectives
+Familiarize the student with:
+
+modelling real-world entities in C++,
+the composition of objects from objects of other classes.
+Scenario
+In one of the network programs you need to store the IP addresses of a computer and other devices. Create a class describing Network with an array of IPAddress.
+
+Implement methods to:
+
+add one IPAddress to Network;
+print all addresses in Network.
+Create two Network objects and five IPAddress objects. One IPAddress should be placed in both networks. Get five addresses from the user. Print both networks.
+
+
+Sample Input
+1.1.1.1
+2.2.2.2
+3.3.3.3
+4.4.4.4
+5.5.5.5
+Expected output
+Network 1:
+1.1.1.1
+2.2.2.2
+3.3.3.3
+Network 2:
+3.3.3.3
+4.4.4.4
+5.5.5.5

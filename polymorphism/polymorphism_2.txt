@@ -1,0 +1,25 @@
+Objectives
+Familiarize the student with:
+
+polymorphism, or using objects of different types through a common interface;
+using polymorphism in real programs.
+Scenario
+Let's assume you write a code for the game of checkers (aka draughts). There are two types of pieces in this game: men and kings.
+
+You need to implement classes (one abstract for the pieces and two separate classes for the men and the kings) to check if the moves are correct.
+
+Men can only move one field forward along diagonals. In international checkers, kings can move any distance forward and backward along unblocked diagonals.
+
+To simplify your program, assume that the board is empty and you only have to check one piece at a time. The starting position for one of the pieces is the b1 field.
+
+Call a check method from the pointer to the base (Piece) class.
+
+Test Data
+Call a method to check if Piece(Man) can be moved from b1 to c2
+Call a method to check if Piece(King) can be moved from b1 to d3
+Call a method to check if Piece(Man) can be moved from b1 to d3
+
+Expected Output
+true
+true
+false

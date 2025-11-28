@@ -1,0 +1,22 @@
+Objectives
+Familiarize the student with:
+
+defining a C++ class from scratch;
+modelling real-world entities with classes and objects.
+Scenario
+One aspect of encapsulation is setting the data in the object, but there is another aspect to it.
+
+Now that you have the basics, try to implement your own C++ class!
+
+Let's say we're building an e-commerce site and you are tasked with implementing a single-item order in a shopping cart.
+
+Your class should be named ShopItemOrder.
+The item order shall store the following information:
+item name;
+item unit price;
+number of items ordered.
+There will be access methods allowing to:
+get and set all of the above information;
+get the total price for the order;
+print the order in a user-friendly way.
+You can take any approach to calculating the total price.

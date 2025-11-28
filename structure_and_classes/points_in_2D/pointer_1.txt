@@ -1,0 +1,29 @@
+Objectives
+Familiarize the student with:
+
+modelling real-world entities with classes and objects;
+interactions between objects of the same type.
+Scenario
+A point in two-dimensional space can be represented by two coordinates, usually denoted as x and y.
+
+The distance between two points in space can be calculated using the Pythagorean theorem.
+
+Your program should read two sets of x and y coordinates and calculate the distance between the two points the sets represent.
+
+Sample Input
+0 0
+3 4
+Expected output
+5
+
+Sample Input
+9, 16
+4, 4
+Expected output
+13
+
+Sample Input
+-3 -6.7
+-8.5 9
+Expected output
+16.6355042

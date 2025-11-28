@@ -1,0 +1,34 @@
+Objectives
+Familiarize the student with:
+
+modelling real-world entities with classes and objects;
+interactions between objects of the same type;
+creating objects based on objects of other objects of custom classes.
+Scenario
+A line in two-dimensional space can be represented by two parameters, the slope and the y-intercept.
+
+If we represent the slope as a and the y-intercept as b, then all points that belong to that line can be expressed by the equation y = ax + b.
+
+Knowing two points that belong to a line, we are able to calculate the slope and the y-intercept of the line.
+
+Your program should read two sets of x and y coordinates and construct an object of the class Line2D, based on those two points.
+
+Output the line in the form y = [slope]x [+-] [y_intercept]
+
+Sample Input
+0 0
+3 6
+Expected output
+y = 2x + 0
+
+Sample Input
+2 2
+-2 0
+Expected output
+y = 0.5x + 1
+
+Sample Input
+-1 1
+2 -4
+Expected output
+y = -1.66667x - 0.666667

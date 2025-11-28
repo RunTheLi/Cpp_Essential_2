@@ -1,0 +1,27 @@
+Objectives
+Familiarize the student with:
+
+implementing data structures in C++;
+keeping data structures consistent at all times.
+Scenario
+Now, our list implementation can be easily used to create a stack implementation, since we can push and pop items to the front of the list.
+
+Another common data structure is the queue. A queue allows us to add elements to one side of the data structure, but remove them only from the other side.
+
+So, queues allow us to process items in order of appearance, which is often considered fair. This is a common scenario in many cases:
+
+when handling calls from customers, we want to answer the calls in order, so we don't make one of our customers wait forever;
+ticket reservation systems should process requests in order of appearance, so someone who wanted the ticket first should get it.
+To enable us to use our list as a queue, we'll add a new method to it: push_back().
+
+One strategy to add an element to the back of the list would be to always search for the last element and add the new element to the list.
+
+This, unfortunately, is a lot of work just to add a single element.
+
+Another approach is to create a new pointer that will always point to the last node in the list. Let's try this approach.
+
+Expected output
+1
+2
+3
+4

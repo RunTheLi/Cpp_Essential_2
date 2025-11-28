@@ -1,0 +1,24 @@
+Objectives
+Familiarize the student with:
+
+inheritance syntax and operation;
+sharing functionality between objects using inheritance.
+Scenario
+Let's continue with our farm example from the previous lab.
+
+Create classes representing cows, sheep and horses:
+
+a sheep will consume about 1.1 liters of water per day per 10 kg of weight;
+a horse will consume about 6.8 liters of water per day per 100 kg of weight;
+a cow will consume about 8.6 liters of water per day per 100 kg of weight.
+Your program should read lines of text in the following form: "[animal] [weigth]".
+
+When your program encounters an empty line, it should print the total water consumption and exit.
+
+Sample Input
+cow 500
+sheep 80
+horse 400
+
+Expected output
+79

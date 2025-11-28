@@ -1,0 +1,27 @@
+Objectives
+Familiarize the student with:
+
+implementing multiple classes with the same interface;
+polymorphism, or using objects of different types through a common interface.
+Scenario
+Write four classes to implement the printing of different kinds of trees (they should consist of very simple ASCII characters, i.e. '*', '/' and '\').
+
+One of the classes is a base for the other three. In the base class, you should create a draw method – it's the only method of this class and it's a virtual method.
+
+Next, in the derived classes, implement this method with three different versions of drawing. In the main function, create a table of three pointers to objects of the base class.
+
+Then create three objects of different kinds of trees and assign pointers to them to cells of the previously created table. After this, in the for loop, iterate over the table and call the draw method from every element of the table.
+
+Test Data
+Just the for loop in the code.
+
+Expected Output
+Drawing 1:
+ /\
+//\\
+Drawing 2:
+ / \
+/**\
+Drawing 3:
+ / \
+/++\

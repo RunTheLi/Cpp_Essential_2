@@ -1,0 +1,34 @@
+Objectives
+Familiarize the student with:
+
+modelling real-world entities in C++;
+the composition of objects from objects of other classes.
+Scenario
+Below is a recipe for constructing a primitive car. All class names start with a capital letter.
+
+Compose a Car from some objects, you should use: one Engine, four Wheels, one Chassis, ten Lights, and one Body.
+
+Feel free to define the attributes of these classes. Every class (including Car) must have a print method.
+
+In the print method of Car, you just need to call the print method from all the objects.
+
+Create one car and call a print method. Just print values for one car.
+
+Expected output
+Engine: 1.0
+Wheel: 16inches
+Wheel: 16inches
+Wheel: 16inches
+Wheel: 16inches
+Chassis: Normal
+Light: Type 1
+Light: Type 1
+Light: Type 2
+Light: Type 2
+Light: Type 3
+Light: Type 3
+Light: Type 4
+Light: Type 4
+Light: Type 5
+Light: Type 5
+Body: Black

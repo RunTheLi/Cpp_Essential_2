@@ -1,0 +1,23 @@
+Objectives
+Familiarize the student with:
+
+implementing data structures in C++;
+preventing memory leaks and deallocating acquired resources.
+Scenario
+Let's continue working on our list.
+
+We're currently making one serious error: we're not cleaning up after ourselves and we're leaking memory.
+
+Add a destructor to your List class. The destructor should delete all the Nodes in the list, leaving it empty.
+
+To help you make sure that you've deleted all the elements, we've added some text output to the Node constructor and destructor.
+
+Expected output
++Node
++Node
++Node
++Node
+-Node
+-Node
+-Node
+-Node

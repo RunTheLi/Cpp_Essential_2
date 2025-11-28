@@ -1,0 +1,25 @@
+Objectives
+Familiarize the student with:
+
+implementing data structures in C++;
+providing derived data about the implemented data structure.
+Scenario
+Let's continue working on our list.
+
+One piece of information that might be useful is the size of the list.
+
+Add the method size() to your list implementation.
+
+As the name suggests, it should return the number of stored elements.
+
+Expected output
+pushed 0 size: 1
+pushed 1 size: 2
+pushed 2 size: 3
+pushed 3 size: 4
+pushed 4 size: 5
+pushed 5 size: 6
+
+popped 5 size: 5
+popped 4 size: 4
+popped 3 size: 3

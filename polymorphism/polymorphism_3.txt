@@ -1,0 +1,25 @@
+Objectives
+Familiarize the student with:
+
+implementing multiple classes with the same interface;
+polymorphism, or using objects of different types through a common interface.
+Scenario
+Write a hierarchy of two classes: base class IPAddress and derived class IPAddressChecked.
+
+The first class holds the value of an IP address and the derived class has one additional Boolean value (set to true if the IP is correct, otherwise set to false).
+
+Both classes have a constructor, a copy constructor and the print method. The print method in the derived class should also print the value of its Boolean (Correct/Not Correct).
+
+Use the methods of the base class in the derived one.
+
+Write some test code to get input from the user. Create one IPAddress object and two IPAddressChecked objects. Print the values for all three objects.
+
+Sample Input
+1.2.3.4
+999.29.29.29
+199.29.29.29
+
+Expected Output
+1.2.3.4
+999.29.29.29 - Not Correct
+199.29.29.29 - Correct

@@ -1,0 +1,17 @@
+Objectives
+Familiarize the student with:
+
+inheritance syntax and operation;
+sharing functionality between objects using inheritance.
+Scenario
+Farm owners have to know how much water they need in order to provide enough for their animals.
+
+All farm animals need water, so they share a common trait.
+
+Let's model this relationship with C++ classes.
+
+You have no particular task in this lab.
+
+Play around with the code below, add some print statements in the constructors to see when they're called and with what arguments.
+
+Try to modify the member of the base class from the derived class and see if it's possible. Then think of several ways you can modify the code to make it possible.

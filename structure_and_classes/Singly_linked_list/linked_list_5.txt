@@ -1,0 +1,20 @@
+Objectives
+Familiarize the student with:
+
+implementing data structures in C++;
+traversing data structures;
+keeping data structures consistent at all times.
+Scenario
+To make the interface somewhat symmetrical, we should add a method for removing the last element of the list.
+
+Unfortunately, there's no simple trick to avoid traversing the list.
+
+The tail pointer tells us which element we'll be removing, but to remove it we must modify the previous element, which we need to find, starting at the head.
+
+Add the implementation of the pop_back method to List.
+
+Expected output
+1
+2
+3
+4

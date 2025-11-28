@@ -1,0 +1,41 @@
+Objectives
+Familiarize the student with:
+
+implementing data structures in C++;
+creating copies of data structures;
+implementing and using copy constructors.
+Scenario
+In C++, we can create a copy of an object by using the copy constructor.
+
+If we don't create a copy constructor, the compiler will create one for us.
+
+Run the code below and observe the results. Does it work as expected?
+
+The default copy constructor will copy the members from one object to another, but this also applies to pointers. This means, our new list head points to the exact same nodes. This is not acceptable, since changing one list should not have any effect on the other.
+
+Implement a copy constructor that will re-create the list with new nodes, but with the same data.
+
+Expected output
+list1
+list[0] == 1
+list[1] == 2
+list[2] == 3
+list[3] == 4
+
+list2
+list[0] == 1
+list[1] == 2
+list[2] == 3
+list[3] == 4
+
+list1
+list[0] == 1
+list[1] == 6
+list[2] == 2
+list[3] == 3
+list[4] == 4
+
+list2
+list[0] == 1
+list[1] == 2
+list[2] == 4
