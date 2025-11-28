@@ -1,0 +1,33 @@
+Objectives
+Familiarize the student with:
+
+situations when exceptions are thrown;
+the handling of exceptions.
+Scenario
+Improve this simple program so that it prints a message when the user inputs invalid data. Add code to throw the exception manually using the throw keyword when a user inputs 0.
+
+Sample Input
+2
+Expected output
+4
+
+Sample Input
+0
+Expected output
+Your input is not valid, you can't divide by zero.
+0
+
+// Base Code //
+#include <iostream>
+using namespace std;
+int main(void) {
+	int a = 8, b = 0, c = 0;
+	cin >> b;
+	try {
+		//Your code here
+		c = a / b;
+	}
+	// Your code here
+	cout << c << endl;
+	return 0;
+}

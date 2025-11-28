@@ -1,0 +1,45 @@
+Objectives
+Familiarize the student with:
+
+identifying situations when exceptions are thrown;
+adding code to handle exceptions.
+Scenario
+Insert a try-catch block into this program to solve potential problems with arithmetic operations. Remember to inform the user of any exceptions in simple words.
+
+Sample Input
+4
+2
+Expected output
+2
+
+Sample Input
+4
+0
+Expected output
+Your input is not valid, you can't divide by zero.
+
+#include <iostream>
+using namespace std;
+
+class DivideByZeroException : public exception {
+public:
+    const char* what() const throw() {
+        return "Your input is not valid, you can't divide by zero.";
+    }
+};
+
+int main() {
+    int numerator, denominator;
+    cout << "Enter numerator: ";
+    cin >> numerator;
+    cout << "Enter denominator: ";
+    cin >> denominator;
+    
+    try {
+        if (denominator == 0) {
+            throw DivideByZeroException();
+        }
+        // your code here
+    
+    return 0;
+}
