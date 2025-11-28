@@ -228,6 +228,79 @@ Matrix& Matrix::operator*=(int scalar) {
 }
 
 int main () {
+    try{
+        string op;
+        cout << "Enter the operation you want to perform (add, subtract, multiply): ";
+        cin >> op;
+
+        int rowsA, colsA;
+
+        cout << "Enter the number of rows for Matrix A: ";
+        cin >> rowsA;
+        cout << "Enter the number of columns for Matrix A: ";
+        cin >> colsA;
+
+        Matrix A(rowsA, colsA);
+        cout << "Enter the values for Matrix A:\n";
+        for(int i = 0; i < rowsA; i++) { 
+            for (int j = 0; j < colsA; j++){
+                int val;
+                cout << "Enter value at position [" << i << "][" << j << "]:";
+                cin >> val;
+                A.at(i, j) = val;
+
+            }
+        }
+
+    int rowsB, colsB;
+        cout << "Enter the number of rows for Matrix B: ";
+        cin >> rowsB;
+        cout << "Enter the number of columns for Matrix B: ";
+        cin >> colsB;
+
+        Matrix B(rowsB, colsB);
+        cout << "Enter the values for Matrix B:\n";
+        for (int i = 0; i < rowsB; i++) {
+            for (int j = 0; j < colsB; j++) {
+                int val;
+                cout << "Enter value at position [" << i << "][" << j << "]: ";
+                cin >> val;
+                B.at(i, j) = val;
+            }
+        }
+
+        // === PRINT MATRICES ===
+        cout << "\nMatrix A:\n" << A << "\n";
+        cout << "Matrix B:\n" << B << "\n";
+
+        // === PERFORM OPERATION ===
+        Matrix result;
+        if (op == "add") {
+            result = A + B;
+        } else if (op == "subtract") {
+            result = A - B;
+        } else if (op == "multiply") {
+            result = A * B;
+        } else {
+            cout << "Invalid operation.\n";
+            return 0;
+        }
+
+        // === PRINT RESULT ===
+        cout << "Result:\n" << result << endl;
+    }
+    catch (const MatrixSizeMismatch& e) {
+        cout << "Exception: Matrix sizes do not match for addition" << endl;
+    }
+    catch (const MatrixMultiplyMismatch& e) {
+        cout << "Exception: Matrix dimensions do not match for multiplication" << endl;
+    }
+    catch (const IndexOutOfRange& e) {
+        cout << "Exception: Index out of range" << endl;
+    }
+    catch (...) {
+        cout << "Unknown error occurred.\n";
+    }
 
     return 0;
 }
