@@ -1,0 +1,32 @@
+Objectives
+Familiarize the student with:
+
+throwing exceptions;
+handling exceptions.
+Scenario
+Write a simple class for a matrix algebra with basic operations (methods in this class) which allow the programs to:
+
+create a matrix object with specific dimensions;
+fill the matrix with values;
+add values to the matrix;
+add a matrix to the matrix.
+When one of the matrix parameters is empty (also in the add a value method) or the added matrices don't fit one another, you must throw an exception.
+
+In the main function: create three testing matrices, two with the same size and one with another size. Try to compute the sum of all the matrix pairs, add some try-catch blocks and an appropriate message. Print the results on the screen.
+
+What other cases should be tested?
+
+Sample Input
+2
+2
+2
+2
+3
+3
+
+Expected output
+0 0
+0 0
+
+Matrices don't fit.
+Matrices don't fit.

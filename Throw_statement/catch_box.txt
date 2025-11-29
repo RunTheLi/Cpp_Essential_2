@@ -1,0 +1,47 @@
+Objectives
+Familiarize the student with:
+
+handling exceptions;
+writing his/her own exception classes;
+passing additional information in exceptions;
+Scenario
+Write a program that calculates the area of some simple figures (i.e. a square and a rectangle). One function per figure.
+
+Check if the function arguments are greater than 0 – if they aren't, throw an exception.
+
+This program should use your own exceptions to communicate with a higher-level code.
+
+Add some attribute in your exception to pass a message to the user. Some boilerplate code is included below.
+
+Sample Input
+2
+1
+Expected output
+4
+2
+
+Sample Input
+-10
+6
+Expected output
+Your input is not valid. The area can't be negative.
+
+// Base Code //
+#include <iostream>
+
+using namespace std;
+//add your own exception class here
+//add functions code here
+int main(void) {
+	float a, b, r;
+	cin >> a;
+	cin >> b;
+	try
+	{
+		float rsquare = square_area(a);
+		float rrectangle = rectangle_area(a,b);
+		cout << rsquare << endl << rrectangle << endl;
+	}
+	//add a suitable catch block here
+	return 0;
+}
