@@ -1,0 +1,27 @@
+Objectives
+Familiarize the student with:
+
+situations when exceptions are thrown;
+throwing exceptions;
+handling exceptions.
+Scenario
+Write a very simple class to hold one value and its boundaries (limits of the value in integer numbers), add one method to add a value to the one held in the instance of class, and one method to subtract a value from the one held in the object.
+
+In both methods, throw an exception when a value exceeds the limits.
+
+In the main function create two objects and test them with different scenarios.
+
+Print the values held at the end of the program. Add adequate try-catch blocks and an appropriate message.
+
+Sample Input
+5 0 10
+9 0 100
+15
+15
+90
+
+Expected output
+Value could exceed limit.
+Value could exceed limit.
+5
+24.
