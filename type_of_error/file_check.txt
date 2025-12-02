@@ -1,0 +1,19 @@
+Objectives
+Familiarize the student with:
+
+situations when exceptions are thrown;
+handling file-related exceptions.
+Scenario
+Write a class that holds a (2×2) matrix, and add two methods to work with files: one method to load the matrix from a file (in any format) and one method to save the matrix to a file (in the same format).
+
+Add code to handle exceptional situations (file not found and no rights to file), print a message and re-throw an exception.
+
+Add a try-catch block in the proper places.
+
+Simulate both situations handled (try to load a nonexistent file, and try to save a file in a path where you have no proper rights).
+
+Expected output
+Simulate both situations handled:
+
+File not found at: path
+No rights to write to file: path
