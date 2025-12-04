@@ -1,0 +1,25 @@
+Objectives
+Familiarize the student with:
+
+using exceptions in real programs;
+the simplification of exception throwing;
+throwing exceptions in constructors.
+Scenario
+IP header – imagine you have a class or struct (choose one) describing an IP header which holds (apart from other fields) two string fields that contain Source IP Address and Destination IP Address.
+
+Check these two fields and throw an exception in a constructor, and using a special check method, try to write one version of this code only.
+
+The condition of the check method is that both IP numbers are valid. Start with simple checks – the IP number must consist of four numbers in the 0-255 range, separated by a dot.
+
+Append appropriate information about which of the IP numbers is invalid.
+
+Sample Input
+212.112.212.11
+212.112.212.12
+
+212.112.212.333
+212.112.212.33
+
+Expected output
+Valid IP Header.
+Invalid IP Header - Source IP Address is invalid.
